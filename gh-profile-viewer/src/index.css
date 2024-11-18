@@ -1,0 +1,70 @@
+/* index.css */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f6f8fa; /* GitHub-like background */
+}
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.github-logo {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+}
+
+.description {
+  font-size: 24px;
+  color: #090101;
+  margin-bottom: 30px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar {
+  width: 60%;
+  max-width: 500px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 30px; /* Rounded corners */
+  outline: none;
+}
+
+.search-bar:focus {
+  border-color: #6e41e2; /* Change border color on focus */
+}
