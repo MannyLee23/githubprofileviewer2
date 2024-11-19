@@ -1,4 +1,6 @@
 import React from 'react';
+import './ProfileInfo.css'; // Import the specific CSS file for repo styling
+
 
 function ProfileInfo({ userData }) {
   if (!userData) return null;
@@ -15,16 +17,6 @@ function ProfileInfo({ userData }) {
             <button>Add Friend</button>
           </div>
         </div>
-      </div>
-      <div className="friends-section">
-        <h3>Quandale's Friends</h3>
-        <ul>
-          <li>@speed</li>
-          <li>@mrbeast</li>
-          <li>@kcenat</li>
-          <li>@hugh_jass</li>
-          <li>@jack_goff</li>
-        </ul>
       </div>
     </div>
   );

@@ -1,0 +1,47 @@
+.repo-card {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 1.5em;
+    margin: 1em 0;
+    background-color: #f9f9f9;
+    transition: box-shadow 0.3s ease;
+}
+
+.repo-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.repo-name {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.last-updated {
+    font-size: 1em;
+    color: #666;
+    margin: 0.5em 0;
+}
+
+.likes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.like-btn {
+    background-color: #28a745;
+    color: white;
+    &:hover {
+        background-color: #218838;
+    }
+}
+
+.share-btn {
+    background-color: #007bff;
+    color: white;
+    &:hover {
+        background-color: #0056b3;
+    }
+}

@@ -1,0 +1,83 @@
+.profile-info-container {
+    display: flex;
+    flex-direction: left;
+    justify-content: left;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #f7f7f7; /* Optional: Set a background color */
+  }
+
+  .avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 20px;
+    float: left;
+  }
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 20px;
+}
+
+  .header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .github-logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+  }
+  
+  .app-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  .subheading {
+    font-size: 1.5rem;
+    margin: 20px 0;
+    color: #040000;
+  }
+  
+  .search-bar-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .search-input {
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 25px;
+    width: 70%;
+    max-width: 400px;
+    margin-bottom: 10px;
+    border: 1px solid #100505;
+  }
+  
+  .search-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    background-color: #2c8ebb;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .search-button:hover {
+    background-color: #2175a4;
+  }
+  

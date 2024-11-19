@@ -27,14 +27,14 @@ function App() {
       <div className="logo">
       </div>
       <div className="home-content">
-      <div className="header">
-        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" className="github-logo" />
-        <h1 className="title">GitHub Profile Viewer</h1>
+        <div className="header">
+          <img src={require('./assets/logo.png')} alt="GitHub Logo" className="github-logo" />
+          <h1 className="title">GitHub Profile Viewer</h1>
+        </div>
+        <h2 className="description">A simpler way to show your GitHub profile and repositories.</h2>
+        <div className="search-container">
+        </div>
       </div>
-      <h2 className="description">A simpler way to show your GitHub profile and repositories.</h2>
-      <div className="search-container">
-      </div>
-    </div>
       <SearchBar onSearch={fetchGitHubData} />
       {userData && <ProfileInfo userData={userData} />}
       {repos.length > 0 && <ReposList repos={repos} />}

@@ -1,0 +1,33 @@
+/* RepoList.css */
+.repos-list {
+    margin-top: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: linear-gradient(to bottom, #8d7bd3, #c5bdd3);
+
+  }
+  
+  table th, table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #090609;
+  }
+  
+  table th {
+    background: linear-gradient(to bottom, #8d7bd3, #c5bdd3);
+}
+  
+  button {
+    padding: 5px 10px;
+    font-size: 1rem;
+    cursor: pointer;  
+  }
+  
+  button:hover {
+    background-color: #ddd;
+  }
+  

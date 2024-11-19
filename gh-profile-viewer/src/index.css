@@ -1,6 +1,6 @@
 /* index.css */
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Kalnia', sans-serif; /* Add Kanit as the primary font */
   line-height: 1.5;
   font-weight: 400;
 }
@@ -13,6 +13,7 @@ body {
   align-items: center;
   height: 100vh;
   background-color: #f6f8fa; /* GitHub-like background */
+  font-family: 'Kalnia', sans-serif; /* Apply Kanit font to the body */
 }
 
 .home-content {
@@ -40,12 +41,13 @@ body {
 
 .title {
   font-size: 36px;
-  font-weight: bold;
+  font-weight: 700; /* Use a bold weight for Kanit */
   color: #333;
 }
 
 .description {
   font-size: 24px;
+  font-weight: 300; /* Use a lighter weight for the description */
   color: #090101;
   margin-bottom: 30px;
 }
