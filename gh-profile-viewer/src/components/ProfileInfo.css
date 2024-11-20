@@ -24,13 +24,6 @@
     margin-left: 20px;
 }
 
-  .header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    padding: 20px;
-  }
   
   .github-logo {
     width: 50px;
@@ -79,5 +72,11 @@
   
   .search-button:hover {
     background-color: #2175a4;
+  }
+  
+  .confirmation-message {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
   }
   

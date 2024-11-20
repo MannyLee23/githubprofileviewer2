@@ -41,7 +41,9 @@
 .share-btn {
     background-color: #007bff;
     color: white;
-    &:hover {
-        background-color: #0056b3;
-    }
-}
+  }
+  
+  .share-btn:hover {
+    background-color: #0056b3;
+  }
+  

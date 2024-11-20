@@ -24,23 +24,24 @@
         gap: 8px;
       }
       
-      .like-button {
-        background: none;
-        border: none;
-        cursor: pointer;
-        font-size: 1.5rem;
-        color: rgb(172, 130, 239);
-        padding: 0;
-      }
-      
-      .like-button:hover {
-        transform: scale(1.2);
-      }
-      
-      .likes-count {
-        font-size: 0.9rem;
-        color: #090000;
-        font-weight: bold;
-        font-family: 'roboto', sans-serif;
-      }
     }      
+
+    .like-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: rgb(172, 130, 239);
+      padding: 0;
+    }
+    
+    .like-button:hover {
+      transform: scale(1.2);
+    }
+    
+    .likes-count {
+      font-size: 0.9rem;
+      color: #090000;
+      font-weight: bold;
+    }
+  
