@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './ProfileInfo.css';
 import AddUserForm from './AddUserForm';  // Add this import if the component exists separately
+import AddFriendModal from './AddFriendModal';
+
 
 function ProfileInfo({ userData }) {
   const [isModalOpen, setIsModalOpen] = useState(false);

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faShareAlt } from '@fortawesome/free-solid-svg-icons';
 import { formatDistanceToNow } from 'date-fns';
 import './RepoItem.css';
 
@@ -9,21 +9,25 @@ function RepoItem({ repo }) {
 
   const handleLike = () => setLikes(likes + 1);
 
+  // Formatting the date to show time ago
   const lastUpdated = formatDistanceToNow(new Date(repo.updated_at), { addSuffix: true });
 
   return (
     <div className="repo-item">
-      <h3>{repo.name}</h3>
-      <p className="last-updated">Last updated: {lastUpdated}</p>
-      <div className="like-section">
+      <div className="repo-details">
+        <h3 className="repo-name">{repo.name}</h3>
+        <p className="repo-updated">Last updated: {lastUpdated}</p>
+      </div>
+      <div className="repo-actions">
         <button className="like-button" onClick={handleLike}>
-          <FontAwesomeIcon icon={faHeart} style={{ color: 'red' }} />
+          <FontAwesomeIcon icon={faHeart} /> {likes} Like
         </button>
-        <span className="likes-count">{likes} Likes</span>
+        <button className="share-button">
+          <FontAwesomeIcon icon={faShareAlt} /> Share
+        </button>
       </div>
     </div>
   );
 }
 
 export default RepoItem;
-
