@@ -1,0 +1,60 @@
+.repo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.repo-details {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns content to the left */
+
+}
+
+.repo-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.repo-updated {
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 5px; /* Adds a small space between the name and updated text */
+}
+
+.repo-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.like-button,
+.share-button {
+  display: flex;
+  align-items: center;
+  background-color: #6e41e2;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.like-button:hover,
+.share-button:hover {
+  background-color: #5c35b3;
+}
+
+.like-button svg,
+.share-button svg {
+  margin-right: 5px;
+}
