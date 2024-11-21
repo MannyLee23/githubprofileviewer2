@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faShareAlt, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { formatDistanceToNow } from 'date-fns';
@@ -10,6 +10,21 @@ function RepoItem({ repo }) {
   const [senderEmail, setSenderEmail] = useState('');
   const [recipientEmail, setRecipientEmail] = useState('');
   const [message, setMessage] = useState('');
+
+  const repoKey = `repo-${repo.id}-likes`; // Unique key for the repository in localStorage
+
+  // Load likes from localStorage when the component mounts
+  useEffect(() => {
+    const savedLikes = localStorage.getItem(repoKey);
+    if (savedLikes) {
+      setLikes(Number(savedLikes));
+    }
+  }, [repoKey]);
+
+  // Save likes to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem(repoKey, likes);
+  }, [likes, repoKey]);
 
   const handleLike = () => setLikes(likes + 1);
 
