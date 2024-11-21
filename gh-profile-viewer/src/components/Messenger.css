@@ -1,0 +1,153 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensures padding is included in element widths */
+  overflow-x: hidden; /* Prevents horizontal overflow */
+}
+
+.profile-info {
+  padding: 20px;
+  width: 100%;
+  max-width: 100%;
+  text-align: left;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.avatar {
+  width: 200px !important;
+  height: 200px !important;
+  border-radius: 50%;
+  border: 3px solid #ddd;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile-details h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #0a0a0a;
+}
+
+.profile-details p {
+  margin: 5px 0;
+  font-size: 1.1rem;
+  color: #444444;
+}
+
+.profile-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.add-friend-button, .message-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(90deg, #28a745, #5ecf78);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.add-friend-button:hover, .message-button:hover {
+  background: linear-gradient(90deg, #5ecf78, #28a745);
+  transform: translateY(-2px);
+}
+
+.add-friend-button:active, .message-button:active {
+  transform: translateY(0);
+}
+
+.message-button {
+  background: linear-gradient(90deg, #007bff, #5a9fff);
+}
+
+.message-button:hover {
+  background: linear-gradient(90deg, #5a9fff, #007bff);
+}
+
+/* Updated Messenger Container Styling */
+.messenger-container {
+  position: fixed; /* Keep it fixed so it doesn't scroll with content */
+  bottom: 20px; /* Align it to the bottom */
+  right: 20px; /* Align it to the right */
+  width: 350px; /* Adjust width to fit comfortably */
+  max-height: 60vh; /* Set a maximum height to avoid overlap */
+  overflow-y: auto; /* Allow scrolling if the content overflows */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  z-index: 2000; /* Ensure the messenger appears above other elements */
+}
+
+/* Hide Messenger on Small Screens */
+@media (max-width: 768px) {
+  .messenger-container {
+    width: 90%;
+    right: 5%;
+    bottom: 5%;
+  }
+}
+
+.chat-header {
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.chat-messages {
+  max-height: 40vh; /* Ensure messages fit within the container */
+  overflow-y: auto; /* Allow scrolling for messages */
+  padding: 10px;
+}
+
+.chat-message {
+  margin-bottom: 10px;
+}
+
+.chat-input {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+
+.chat-input button {
+  padding: 10px 15px;
+  background-color: #6e41e2;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.chat-input button:hover {
+  background-color: #8a6cf0;
+}
+
