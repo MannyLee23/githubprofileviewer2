@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './AddFriendModal.js';
 
 function AddUserForm({ onClose }) {
   const [username, setUsername] = useState('');

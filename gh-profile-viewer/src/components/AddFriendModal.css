@@ -8,42 +8,64 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1000;
   }
   
+ 
   .modal-content {
-    background: linear-gradient(180deg, #a4a0c9, #cbc9d4);
-    padding: 20px;
+    background: linear-gradient(to bottom, #eae7f7, #d6c3f8);
+    padding: 30px;
     border-radius: 15px;
-    width: 50%;
-    text-align: center;
+    width: 70%;
+    max-width: 900px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
   
-  .request-screen, .confirmation-screen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .user-details {
-    margin: 20px 0;
-  }
-  
-  .avatar {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
+  .confirmation-screen .user-details {
+    margin-bottom: 20px;
+
   }
   
   .action-buttons {
     display: flex;
     gap: 20px;
+    justify-content: center;
   }
   
-  .confirm-btn, .cancel-btn {
-    font-size: 2rem;
-    background: none;
+  .profile-button,
+  .message-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(90deg, #6e41e2, #8a6cf0);
+    color: white;
     border: none;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background 0.3s, transform 0.2s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-button:hover,
+  .message-button:hover {
+    background: linear-gradient(90deg, #8a6cf0, #6e41e2);
+    transform: translateY(-2px);
+  }
+  
+  .profile-button:active,
+  .message-button:active {
+    transform: translateY(0);
+  }
+  
+  .confirm-btn,
+  .cancel-btn {
+    font-size: 3rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+    transition: transform 0.3s ease;
   }
   
   .confirm-btn {
@@ -54,17 +76,9 @@
     color: red;
   }
   
-  .action-buttons button {
-    background: #6200ea;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s;
+  .confirm-btn:hover,
+  .cancel-btn:hover {
+    transform: scale(1.2);
   }
   
-  .action-buttons button:hover {
-    background: #3700b3;
-  }
   
