@@ -4,55 +4,122 @@ body {
   font-family: 'arial', sans-serif;
   background: linear-gradient(to bottom, #8d7bd3, #c5bdd3);
   min-height: 100vh;
+}
+
+/* App Container */
+.app-container {
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+}
+
+/* Header Styling */
+.header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensure header stays on top */
+}
+
+.header-left {
+  display: flex;
   align-items: center;
 }
 
-.app-container {
-  text-align: center;
-  position: static;
-  padding: 20px;
- 
+.github-logo {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
 }
 
+.title {
+  font-size: 1.8r
+  
+}
+
+/* Header Right - Authentication Links Styling */
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.auth-links {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-button {
+  padding: 10px 15px;
+  background-color: #6e41e2;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+  background-color: #5c35b3;
+}
+
+/* Firebase Auth Container Styling */
+.firebase-auth-container {
+  margin-top: 80px; /* Adjust margin to avoid overlap with fixed header */
+  text-align: center;
+}
+
+.firebase-auth-container input {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.firebase-auth-container button {
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #6e41e2;
+  color: white;
+  cursor: pointer;
+}
+
+.firebase-auth-container button:hover {
+  background-color: #5a35b3;
+}
+
+/* Description Text */
+.description {
+  font-family: Kalnia, sans-serif;
+  font-size: 3.2rem;
+  font-weight: 520;
+  margin-top: 60px; /* Adjust to avoid overlap with header */
+  margin-bottom: 60px;
+}
+
+/* Adjust Header Background with Logo */
 .app-container::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  right: 50%;
+  right: 0;
   bottom: 0;
   background: url('./assets/logo.png') no-repeat center center;
   background-position: center;
   opacity: 0.1;
   z-index: -1;
   background-size: cover;
-  opacity: 0.1;
-  color: white;
-  max-width: 900px;
-  width: 100%;
-  background-color: rgba(143, 101, 149, 0.05);
-  padding: 100px;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.title {
-  font-size: 2rem;;
-  margin-bottom: 20px;
-}
-
-.description {
-  font-family: Kalnia, sans-serif;
-  font-size: 3.2rem;
-  font-weight: 520;
-  margin-bottom: 60px;
-
+/* Ensure the Header Stays Fixed */
+.app-container {
+  padding-top: 100px; /* Prevent content from being hidden behind the header */
 }
