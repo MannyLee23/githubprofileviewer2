@@ -4,6 +4,7 @@ body {
   font-family: 'arial', sans-serif;
   background: linear-gradient(to bottom, #8d7bd3, #c5bdd3);
   min-height: 100vh;
+  overflow-x: hidden; /* Prevents horizontal overflow */
 }
 
 /* App Container */
@@ -11,6 +12,7 @@ body {
   text-align: center;
   padding: 20px;
   width: 100%;
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
 
 /* Header Styling */
@@ -20,11 +22,10 @@ body {
   align-items: center;
   padding: 20px;
   color: white;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000; /* Ensure header stays on top */
+  width: 100%;
+  max-width: 1200px; /* Prevent header from expanding too far out */
+  margin: 0 auto; /* Centers the header horizontally */
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .header-left {
@@ -39,8 +40,7 @@ body {
 }
 
 .title {
-  font-size: 1.8r
-  
+  font-size: 1.8rem;
 }
 
 /* Header Right - Authentication Links Styling */
@@ -52,6 +52,7 @@ body {
 .auth-links {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap; /* Makes sure buttons do not go outside of the viewport */
 }
 
 .nav-button {
@@ -62,6 +63,7 @@ body {
   border-radius: 5px;
   font-weight: bold;
   transition: background-color 0.3s;
+  overflow: hidden; /* Prevent content overflow */
 }
 
 .nav-button:hover {
@@ -70,7 +72,7 @@ body {
 
 /* Firebase Auth Container Styling */
 .firebase-auth-container {
-  margin-top: 80px; /* Adjust margin to avoid overlap with fixed header */
+  margin-top: 80px;
   text-align: center;
 }
 
@@ -100,9 +102,9 @@ body {
   font-family: Kalnia, sans-serif;
   font-size: 3.2rem;
   font-weight: 520;
-  margin-top: 150px; /* Increase this value to move the description lower */
+  margin-top: 150px;
   margin-bottom: 40px;
-  text-align: center; /* Keep the description centered */
+  text-align: center;
 }
 
 /* Adjust Header Background with Logo */
@@ -120,31 +122,26 @@ body {
   background-size: cover;
 }
 
-/* Ensure the Header Stays Fixed */
-.app-container {
-  padding-top: 100px; /* Prevent content from being hidden behind the header */
-}
-
 /* Search Bar Container Styling */
 .search-bar-container {
   display: flex;
-  justify-content: center; /* Horizontally centers the search bar */
-  align-items: center; /* Vertically aligns items within the container */
-  margin-top: 100px; /* Controls how far down the search bar appears on the page */
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
   width: 100%;
 }
 
 /* Search Input Styling */
 .search-input {
-  width: 50%; /* Adjust this to control how wide the input is */
-  max-width: 500px; /* Set a maximum width */
+  width: 50%;
+  max-width: 500px;
   padding: 15px;
   border: 2px solid #ccc;
   border-radius: 30px;
   outline: none;
   font-size: 1rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow to the input */
-  margin-right: 5px; /* Space between the input and the button */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-right: 5px;
 }
 
 /* Search Button Styling */
@@ -157,16 +154,14 @@ body {
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s ease, transform 0.2s ease-in-out;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a shadow to make the button stand out */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .search-button:hover {
   background-color: #5c35b3;
-  transform: translateY(-2px); /* Makes the button pop up slightly on hover */
+  transform: translateY(-2px);
 }
 
 .search-button:active {
   transform: translateY(0);
 }
-
-
