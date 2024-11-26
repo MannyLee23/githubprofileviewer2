@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './ProfileInfo.css';
-import AddUserForm from './AddUserForm';  // Add this import if the component exists separately
+import AddUserForm from './AddUserForm'; 
 import AddFriendModal from './AddFriendModal';
+import FriendsList from './FriendsList'; 
 
 
 function ProfileInfo({ userData }) {
@@ -32,11 +33,11 @@ function ProfileInfo({ userData }) {
           )}
         </div>
       </div>
+
+      {}
+      <FriendsList />
     </div>
   );
 }
 
 export default ProfileInfo;
-
-
-
