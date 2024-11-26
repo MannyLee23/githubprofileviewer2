@@ -41,6 +41,9 @@ function Register() {
         />
         <button type="submit">Register</button>
       </form>
+      <button onClick={() => navigate('/')} className="back-button">
+        Back
+      </button>
     </div>
   );
 }

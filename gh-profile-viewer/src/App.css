@@ -100,8 +100,9 @@ body {
   font-family: Kalnia, sans-serif;
   font-size: 3.2rem;
   font-weight: 520;
-  margin-top: 60px; /* Adjust to avoid overlap with header */
-  margin-bottom: 60px;
+  margin-top: 150px; /* Increase this value to move the description lower */
+  margin-bottom: 40px;
+  text-align: center; /* Keep the description centered */
 }
 
 /* Adjust Header Background with Logo */
@@ -123,3 +124,49 @@ body {
 .app-container {
   padding-top: 100px; /* Prevent content from being hidden behind the header */
 }
+
+/* Search Bar Container Styling */
+.search-bar-container {
+  display: flex;
+  justify-content: center; /* Horizontally centers the search bar */
+  align-items: center; /* Vertically aligns items within the container */
+  margin-top: 100px; /* Controls how far down the search bar appears on the page */
+  width: 100%;
+}
+
+/* Search Input Styling */
+.search-input {
+  width: 50%; /* Adjust this to control how wide the input is */
+  max-width: 500px; /* Set a maximum width */
+  padding: 15px;
+  border: 2px solid #ccc;
+  border-radius: 30px;
+  outline: none;
+  font-size: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow to the input */
+  margin-right: 5px; /* Space between the input and the button */
+}
+
+/* Search Button Styling */
+.search-button {
+  padding: 15px 20px;
+  background-color: #6e41e2;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a shadow to make the button stand out */
+}
+
+.search-button:hover {
+  background-color: #5c35b3;
+  transform: translateY(-2px); /* Makes the button pop up slightly on hover */
+}
+
+.search-button:active {
+  transform: translateY(0);
+}
+
+

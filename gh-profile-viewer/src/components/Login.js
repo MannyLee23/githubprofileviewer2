@@ -41,8 +41,12 @@ function Login() {
         />
         <button type="submit">Login</button>
       </form>
+      <button onClick={() => navigate('/')} className="back-button">
+        Back
+      </button>
     </div>
   );
 }
 
 export default Login;
+

@@ -1,29 +1,36 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons'; // Import the search icon
+import './SearchBar.css';
 
 function SearchBar({ onSearch }) {
   const [username, setUsername] = useState('');
 
-  const handleChange = (e) => setUsername(e.target.value);
-
   const handleSearch = () => {
-    if (username) {
+    if (username.trim() !== '') {
       onSearch(username);
+    } else {
+      alert('Please enter a GitHub username');
     }
   };
 
   return (
-    <div>
-      <input 
-        type="text" 
-        className="search-bar"
-        placeholder="Enter GitHub username..." 
-        value={username} 
-        onChange={handleChange}
+    <div className="search-bar-container">
+      <input
+        type="text"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        placeholder="Enter GitHub username..."
+        className="search-input"
       />
-      <button onClick={handleSearch}>Search</button>
+      <button onClick={handleSearch} className="search-button">
+        <FontAwesomeIcon icon={faSearch} /> {/* Add the search icon here */}
+      </button>
     </div>
-    
   );
 }
 
 export default SearchBar;
+
+
+

@@ -1,0 +1,51 @@
+/* Search Container Styling */
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Search Bar Styling */
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 60%;
+  max-width: 600px;
+  background-color: #ffffff; /* White background for contrast */
+  border-radius: 25px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  padding: 10px 20px; /* Padding for spacing */
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Input Field Styling */
+.search-bar input {
+  flex-grow: 1; /* Take the full width except for the button */
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding-left: 10px; /* Add some space before the text starts */
+}
+
+/* Search Button Styling */
+.search-bar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 1.5rem; /* Bigger size for the icon */
+  color: #6e41e2; /* Use a color to make the button stand out */
+  transition: transform 0.2s ease;
+}
+
+.search-bar button:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Shadow Effect on Focus */
+.search-bar input:focus {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
