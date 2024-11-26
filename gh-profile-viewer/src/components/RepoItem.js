@@ -75,7 +75,10 @@ function RepoItem({ repo }) {
   return (
     <div className="repo-item">
       <div className="repo-details">
-        <h3 className="repo-name">{repo.name}</h3>
+        {/* Make the repo name clickable, redirecting to the GitHub repo page */}
+        <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="repo-link">
+          <h3 className="repo-name">{repo.name}</h3>
+        </a>
         <p className="repo-updated">Last updated: {lastUpdated}</p>
       </div>
       <div className="repo-actions">
@@ -117,3 +120,4 @@ function RepoItem({ repo }) {
 }
 
 export default RepoItem;
+

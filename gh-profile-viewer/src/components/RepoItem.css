@@ -134,3 +134,12 @@
   color: #4caf50;
   font-weight: bold;
 }
+
+.repo-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.repo-link:hover {
+  text-decoration: underline;
+}
