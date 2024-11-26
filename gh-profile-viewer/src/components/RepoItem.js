@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faShareAlt, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { formatDistanceToNow } from 'date-fns';
+import emailjs from 'emailjs-com'; // Import emailjs
 import './RepoItem.css';
 
 function RepoItem({ repo }) {
@@ -37,30 +38,32 @@ function RepoItem({ repo }) {
     setMessage('');
   };
 
+  // Function to send email using EmailJS
   const handleSendEmail = async () => {
     if (senderEmail && recipientEmail) {
-      const emailData = {
-        senderEmail,
-        recipientEmail,
-        repoDetails: `Check out this repository: ${repo.name} - Last updated: ${lastUpdated}`,
+      const emailParams = {
+        from_name: senderEmail,
+        to_email: recipientEmail,
+        reply_to: senderEmail, // Set the reply-to field to the sender's email
+        repo_name: repo.name,
+        repo_url: repo.html_url,
+        last_updated: formatDistanceToNow(new Date(repo.updated_at), { addSuffix: true }),
       };
 
       try {
-        const response = await fetch('/api/send-email', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(emailData),
-        });
-
-        if (response.ok) {
-          setMessage('Email sent successfully!');
-        } else {
-          setMessage('Failed to send email.');
-        }
+        await emailjs.send(
+          'service_kz52cwk',    // Replace with your EmailJS service ID
+          'template_iv6gqfq',   // Replace with your EmailJS template ID
+          emailParams,
+          'kJzvEyNyd2VS3XOo2'   // Replace with your EmailJS public key
+        );
+        setMessage('Email sent successfully!');
       } catch (error) {
-        setMessage('Error sending email.');
+        console.error('Error sending email:', error);
+        setMessage('Failed to send email. Please try again.');
       }
 
+      // Close the modal after 2 seconds
       setTimeout(() => {
         handleModalClose();
       }, 2000);
@@ -120,4 +123,5 @@ function RepoItem({ repo }) {
 }
 
 export default RepoItem;
+
 
