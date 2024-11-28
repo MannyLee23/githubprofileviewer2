@@ -1,8 +1,9 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, useNavigate } from 'react-router-dom';
 import SearchBar from './components/SearchBar';
 import ProfileInfo from './components/ProfileInfo';
 import ReposList from './components/ReposList';
+import FriendsList from './components/FriendsList';
 import Login from './components/Login';
 import Register from './components/Register';
 import './App.css';
@@ -14,9 +15,32 @@ function App() {
   const [userData, setUserData] = useState(null);
   const [repos, setRepos] = useState([]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [friends, setFriends] = useState([]);
+  const [isFriendsListOpen, setIsFriendsListOpen] = useState(false);
 
   const navigate = useNavigate();
 
+  // Load friends list from localStorage when the component mounts
+  useEffect(() => {
+    const savedFriends = JSON.parse(localStorage.getItem('friendsList')) || [];
+    setFriends(savedFriends);
+  }, []);
+
+  // Function to add a friend to the list
+  const addFriend = (friend) => {
+    setFriends((prevFriends) => {
+      const isAlreadyFriend = prevFriends.some((f) => f.id === friend.id);
+      if (isAlreadyFriend) {
+        alert('This user is already in your friends list.');
+        return prevFriends;
+      }
+      const updatedFriends = [...prevFriends, friend];
+      localStorage.setItem('friendsList', JSON.stringify(updatedFriends));
+      return updatedFriends;
+    });
+  };
+
+  // Function to fetch GitHub user data
   const fetchGitHubData = async (username) => {
     try {
       console.log('Searching for:', username);
@@ -45,6 +69,9 @@ function App() {
     }
   };
 
+  const openFriendsList = () => setIsFriendsListOpen(true);
+  const closeFriendsList = () => setIsFriendsListOpen(false);
+
   return (
     <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
       <div className="app-container">
@@ -54,6 +81,7 @@ function App() {
             <h1 className="main-title">GitHub Profile Viewer</h1>
           </div>
           <div className="header-right">
+            <button onClick={openFriendsList} className="nav-button">Friends List</button>
             {!isAuthenticated ? (
               <div className="auth-links">
                 <Link to="/login" className="nav-button">Login</Link>
@@ -82,7 +110,7 @@ function App() {
             element={
               userData ? (
                 <>
-                  <ProfileInfo userData={userData} />
+                  <ProfileInfo userData={userData} onAddFriend={addFriend} onSearch={fetchGitHubData} />
                   <ReposList repos={repos} />
                 </>
               ) : (
@@ -93,17 +121,22 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>
+        {isFriendsListOpen && <FriendsList friends={friends} onClose={closeFriendsList} />}
       </div>
     </AuthContext.Provider>
   );
 }
 
 export default function WrappedApp() {
-  // Make sure to wrap App in Router here
   return (
     <Router>
       <App />
     </Router>
   );
 }
+
+
+
+
+
 

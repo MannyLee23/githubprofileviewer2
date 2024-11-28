@@ -1,14 +1,43 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faEnvelope, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { format } from 'date-fns';
+import Messenger from './Messenger'; // Import Messenger component
 import './AddFriendModal.css';
 
 function AddFriendModal({ user, onClose }) {
   const [isConfirmed, setIsConfirmed] = useState(false);
+  const [isMessengerOpen, setIsMessengerOpen] = useState(false); // State to open/close messenger
 
   const handleConfirm = () => {
     setIsConfirmed(true);
+    addFriendToLocalStorage(user);
+  };
+
+  // Function to add a friend to localStorage
+  const addFriendToLocalStorage = (friend) => {
+    let friendsList = JSON.parse(localStorage.getItem('friendsList')) || [];
+
+    // Check if the friend already exists to avoid duplicates
+    const friendExists = friendsList.some(existingFriend => existingFriend.id === friend.id);
+
+    if (!friendExists) {
+      friendsList.push({
+        id: friend.id,
+        login: friend.login,
+        avatar_url: friend.avatar_url,
+        name: friend.name,
+        created_at: friend.created_at,
+      });
+
+      // Update the friends list in localStorage
+      localStorage.setItem('friendsList', JSON.stringify(friendsList));
+    }
+  };
+
+  // Function to open messenger
+  const handleOpenMessenger = () => {
+    setIsMessengerOpen(true);
   };
 
   // Format the account creation date
@@ -33,7 +62,7 @@ function AddFriendModal({ user, onClose }) {
               <button className="profile-button" onClick={onClose}>
                 <FontAwesomeIcon icon={faUser} /> Return to Profile
               </button>
-              <button className="message-button">
+              <button className="message-button" onClick={handleOpenMessenger}>
                 <FontAwesomeIcon icon={faEnvelope} /> Send a Message
               </button>
             </div>
@@ -45,7 +74,7 @@ function AddFriendModal({ user, onClose }) {
               <div className="left-section">
                 <img className="avatar" src={user.avatar_url} alt={`${user.username || user.login}'s avatar`} />
                 <p className="user-info"><strong>Last active:</strong> 4 hours ago</p>
-                <p className="user-info"><strong>Member since:</strong> {formattedCreationDate}</p> {/* Display formatted account creation date */}
+                <p className="user-info"><strong>Member since:</strong> {formattedCreationDate}</p>
               </div>
               <div className="right-section">
                 <h2>Add @{user.username || user.login} as a friend?</h2>
@@ -57,10 +86,28 @@ function AddFriendModal({ user, onClose }) {
             </div>
           </div>
         )}
+
+        {/* Messenger Modal */}
+        {isMessengerOpen && (
+          <div className="messenger-container">
+            <div className="messenger-header">
+              <h4>Message {user.name || user.username || user.login}</h4>
+              <button className="close-messenger-button" onClick={() => setIsMessengerOpen(false)}>
+                <FontAwesomeIcon icon={faTimes} />
+              </button>
+            </div>
+            <Messenger username={user.username || user.login} />
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
 export default AddFriendModal;
+
+
+
+
+
 

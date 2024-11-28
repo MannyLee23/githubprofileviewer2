@@ -47,6 +47,7 @@ body {
 .header-right {
   display: flex;
   align-items: center;
+  gap: 15px; /* Add gap to evenly space out items */
 }
 
 .auth-links {
@@ -58,6 +59,7 @@ body {
 .nav-button {
   padding: 10px 15px;
   background-color: #6e41e2;
+  border: none;
   color: white;
   text-decoration: none;
   border-radius: 5px;
@@ -164,4 +166,35 @@ body {
 
 .search-button:active {
   transform: translateY(0);
+}
+
+/* Friends List Button Styling */
+.friends-list-button {
+  padding: 10px 15px;
+  background-color: #6e41e2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  white-space: nowrap; /* Prevents text wrapping */
+}
+
+.friends-list-button:hover {
+  background-color: #5c35b3;
+}
+
+.logout-button {
+  padding: 1px 10px;
+  background-color: #343434;
+  color: white;
+  border-radius: 5px;
+  font-size: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #5c35b3;
 }
