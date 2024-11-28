@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faShareAlt, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { formatDistanceToNow } from 'date-fns';
-import emailjs from 'emailjs-com'; // Import emailjs
+import emailjs from 'emailjs-com'; 
 import './RepoItem.css';
 
 function RepoItem({ repo }) {
@@ -52,10 +52,10 @@ function RepoItem({ repo }) {
 
       try {
         await emailjs.send(
-          'service_kz52cwk',    // Replace with your EmailJS service ID
-          'template_iv6gqfq',   // Replace with your EmailJS template ID
+          'service_kz52cwk',    // EmailJS service ID
+          'template_iv6gqfq',   // EmailJS template ID
           emailParams,
-          'kJzvEyNyd2VS3XOo2'   // Replace with your EmailJS public key
+          'kJzvEyNyd2VS3XOo2'   // EmailJS public key
         );
         setMessage('Email sent successfully!');
       } catch (error) {

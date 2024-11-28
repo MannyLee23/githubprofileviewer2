@@ -1,5 +1,5 @@
 import React from 'react';
-import './FriendsList.css'; // Ensure your CSS is up to date
+import './FriendsList.css'; 
 
 function FriendsList({ friends, onClose, onRemoveFriend }) {
   return (

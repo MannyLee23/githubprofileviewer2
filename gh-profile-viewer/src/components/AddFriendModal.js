@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faEnvelope, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { format } from 'date-fns';
-import Messenger from './Messenger'; // Import Messenger component
+import Messenger from './Messenger'; 
 import './AddFriendModal.css';
 
 function AddFriendModal({ user, onClose }) {

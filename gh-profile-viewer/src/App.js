@@ -117,7 +117,7 @@ function App() {
             element={
               userData ? (
                 <>
-                  <ProfileInfo userData={userData} onAddFriend={addFriend} />
+                  <ProfileInfo userData={userData} onSearch={fetchGitHubData} onAddFriend={addFriend} />
                   <ReposList repos={repos} />
                 </>
               ) : (
@@ -132,7 +132,7 @@ function App() {
           <FriendsList
             friends={friends}
             onClose={closeFriendsList}
-            onRemoveFriend={removeFriend} // Add remove friend function
+            onRemoveFriend={removeFriend}
           />
         )}
       </div>
