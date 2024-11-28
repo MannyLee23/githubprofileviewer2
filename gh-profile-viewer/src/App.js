@@ -29,18 +29,25 @@ function App() {
   // Function to add a friend to the list
   const addFriend = (friend) => {
     setFriends((prevFriends) => {
-      const isAlreadyFriend = prevFriends.some((f) => f.id === friend.id);
-      if (isAlreadyFriend) {
-        alert('This user is already in your friends list.');
-        return prevFriends;
+      // Check if the friend already exists in the list to avoid duplicates
+      if (!prevFriends.some((existingFriend) => existingFriend.id === friend.id)) {
+        const updatedFriends = [...prevFriends, friend];
+        localStorage.setItem('friendsList', JSON.stringify(updatedFriends));
+        return updatedFriends;
       }
-      const updatedFriends = [...prevFriends, friend];
+      return prevFriends;
+    });
+  };
+
+  // Function to remove a friend from the list
+  const removeFriend = (friendId) => {
+    setFriends((prevFriends) => {
+      const updatedFriends = prevFriends.filter((friend) => friend.id !== friendId);
       localStorage.setItem('friendsList', JSON.stringify(updatedFriends));
       return updatedFriends;
     });
   };
 
-  // Function to fetch GitHub user data
   const fetchGitHubData = async (username) => {
     try {
       console.log('Searching for:', username);
@@ -110,7 +117,7 @@ function App() {
             element={
               userData ? (
                 <>
-                  <ProfileInfo userData={userData} onAddFriend={addFriend} onSearch={fetchGitHubData} />
+                  <ProfileInfo userData={userData} onAddFriend={addFriend} />
                   <ReposList repos={repos} />
                 </>
               ) : (
@@ -121,7 +128,13 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>
-        {isFriendsListOpen && <FriendsList friends={friends} onClose={closeFriendsList} />}
+        {isFriendsListOpen && (
+          <FriendsList
+            friends={friends}
+            onClose={closeFriendsList}
+            onRemoveFriend={removeFriend} // Add remove friend function
+          />
+        )}
       </div>
     </AuthContext.Provider>
   );
@@ -134,6 +147,7 @@ export default function WrappedApp() {
     </Router>
   );
 }
+
 
 
 
